@@ -88,6 +88,7 @@ nav {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     font-size: 0.8rem;
+    white-space: nowrap;
 }
 
 .nav-menu li a:hover {
@@ -133,16 +134,19 @@ nav {
 
 /* Hero section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/oslo-city.jpg');
-    background-size: cover;
-    background-position: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/AS-Massena-Square-scaled.jpeg');
+    /* 使用 cover 让图片始终铺满，避免两侧纯色条 */
+    background-size: 1200px auto;
+    background-position: center center;
     background-repeat: no-repeat;
+    background-attachment: scroll;
     color: white;
-    padding: 6rem 0 4rem;
+    padding: 25rem 0 4rem;
     text-align: center;
     position: relative;
     overflow: hidden;
-    min-height: 90vh;
+    min-height: 75vh;
+    max-height: 95vh;
     display: flex;
     align-items: center;
 }
@@ -218,8 +222,6 @@ nav {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    word-wrap: break-word;
-    hyphens: auto;
     padding: 0 1rem;
 }
 
@@ -316,7 +318,7 @@ nav {
 /* Responsive Design */
 @media (max-width: 1024px) {
     .hero {
-        min-height: 85vh;
+        min-height: 60vh;
         padding: 5rem 0 3rem;
     }
     
@@ -337,7 +339,7 @@ nav {
 
 @media (max-width: 768px) {
     .hero {
-        min-height: 80vh;
+        min-height: 55vh;
         padding: 4rem 0 3rem;
     }
 
@@ -774,6 +776,52 @@ h2 {
     color: #2563eb;
 }
 
+/* Dynamic highlight for deadline */
+.deadline-highlight {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 152, 0, 0.1) 100%);
+    border-left: 4px solid #ff9800;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    animation: pulse-highlight 2s ease-in-out infinite;
+    box-shadow: 0 2px 8px rgba(255, 152, 0, 0.2);
+}
+
+.deadline-highlight::before {
+    content: "⚠️";
+    color: #ff9800;
+    font-size: 1.2rem;
+}
+
+.highlight-date {
+    color: #ff5722;
+    font-weight: 700;
+    font-size: 1.1em;
+    animation: blink-highlight 1.5s ease-in-out infinite;
+    text-shadow: 0 0 8px rgba(255, 87, 34, 0.3);
+}
+
+@keyframes pulse-highlight {
+    0%, 100% {
+        box-shadow: 0 2px 8px rgba(255, 152, 0, 0.2);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 4px 16px rgba(255, 152, 0, 0.4);
+        transform: scale(1.02);
+    }
+}
+
+@keyframes blink-highlight {
+    0%, 100% {
+        opacity: 1;
+        color: #ff5722;
+    }
+    50% {
+        opacity: 0.8;
+        color: #ff7043;
+    }
+}
+
 .submission-info {
     background: #ffffff;
     padding: 2rem;
@@ -841,10 +889,52 @@ h2 {
 
 .organizer-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+/* TPC Chairs: auto columns by data-count (set by JS from .organizer-card count) */
+.organizer-cards.tpc-chairs[data-count="1"] { grid-template-columns: 1fr; }
+.organizer-cards.tpc-chairs[data-count="2"] { grid-template-columns: repeat(2, 1fr); }
+.organizer-cards.tpc-chairs[data-count="3"] { grid-template-columns: repeat(3, 1fr); }
+.organizer-cards.tpc-chairs[data-count="4"] { grid-template-columns: repeat(2, 1fr); }
+.organizer-cards.tpc-chairs[data-count="5"],
+.organizer-cards.tpc-chairs[data-count="6"] { grid-template-columns: repeat(3, 1fr); }
+.organizer-cards.tpc-chairs[data-count="7"],
+.organizer-cards.tpc-chairs[data-count="8"] { grid-template-columns: repeat(4, 1fr); }
+.organizer-cards.tpc-chairs[data-count="9"] { grid-template-columns: repeat(3, 1fr); }
+.organizer-cards.tpc-chairs[data-count="10"] { grid-template-columns: repeat(5, 1fr); }
+.organizer-cards.tpc-chairs[data-count="11"],
+.organizer-cards.tpc-chairs[data-count="12"] { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 1024px) {
+    .organizer-cards.tpc-chairs[data-count] { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 600px) {
+    .organizer-cards.tpc-chairs[data-count] { grid-template-columns: 1fr !important; }
+}
+
+/* Publicity Chairs: auto columns by data-count (set by JS from .organizer-card count) */
+.organizer-cards.publicity-chairs[data-count="1"] { grid-template-columns: 1fr; }
+.organizer-cards.publicity-chairs[data-count="2"] { grid-template-columns: repeat(2, 1fr); }
+.organizer-cards.publicity-chairs[data-count="3"] { grid-template-columns: repeat(3, 1fr); }
+.organizer-cards.publicity-chairs[data-count="4"] { grid-template-columns: repeat(2, 1fr); }
+.organizer-cards.publicity-chairs[data-count="5"],
+.organizer-cards.publicity-chairs[data-count="6"] { grid-template-columns: repeat(3, 1fr); }
+.organizer-cards.publicity-chairs[data-count="7"],
+.organizer-cards.publicity-chairs[data-count="8"] { grid-template-columns: repeat(4, 1fr); }
+.organizer-cards.publicity-chairs[data-count="9"] { grid-template-columns: repeat(3, 1fr); }
+.organizer-cards.publicity-chairs[data-count="10"] { grid-template-columns: repeat(5, 1fr); }
+.organizer-cards.publicity-chairs[data-count="11"],
+.organizer-cards.publicity-chairs[data-count="12"] { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 1024px) {
+    .organizer-cards.publicity-chairs[data-count] { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 600px) {
+    .organizer-cards.publicity-chairs[data-count] { grid-template-columns: 1fr !important; }
 }
 
 .organizer-card {
@@ -1841,9 +1931,14 @@ footer {
         padding: 6rem 0 3rem;
     }
 
+    .hero-content {
+        padding: 0 0.75rem;
+    }
+
     .hero h1 {
-        font-size: 2.5rem;
-        padding: 0 1rem;
+        font-size: 1.8rem;
+        line-height: 1.2;
+        padding: 0;
     }
 
     .hero-subtitle {
@@ -2102,6 +2197,13 @@ footer {
     height: 4px;
     background: linear-gradient(90deg, #3b82f6, #10b981);
     border-radius: 2px;
+}
+
+.schedule-note {
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.95rem;
+    margin: -1.5rem 0 2rem;
 }
 
 /* Timeline Visual Enhancement */
@@ -2431,7 +2533,7 @@ footer {
 
 @media (max-width: 480px) {
     .hero {
-        min-height: 75vh;
+        min-height: 55vh;
         padding: 3rem 0 2rem;
     }
     

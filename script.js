@@ -1,5 +1,17 @@
 // Mobile Navigation
 document.addEventListener('DOMContentLoaded', function() {
+    // ===== Organizer cards: auto-adjust grid columns by organizer count =====
+    const tpcChairs = document.querySelector('.organizer-cards.tpc-chairs');
+    if (tpcChairs) {
+        const count = tpcChairs.querySelectorAll('.organizer-card').length;
+        tpcChairs.setAttribute('data-count', count);
+    }
+    const publicityChairs = document.querySelector('.organizer-cards.publicity-chairs');
+    if (publicityChairs) {
+        const count = publicityChairs.querySelectorAll('.organizer-card').length;
+        publicityChairs.setAttribute('data-count', count);
+    }
+
     const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
 
@@ -29,9 +41,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ===== Workshop Countdown Timer =====
-    // Target date: October 19, 2025 14:00 Chengdu time (UTC+8)
-    // Chengdu time 14:00 = UTC 06:00
-    const targetDate = new Date('2025-10-19T06:00:00Z');
+    // Target date: June 9, 2026 09:00 Nice, France time (UTC+2)
+    // Nice time 09:00 = UTC 07:00
+    const targetDate = new Date('2026-06-09T07:00:00Z');
     
     function updateCountdown() {
         const daysEl = document.getElementById('days');
