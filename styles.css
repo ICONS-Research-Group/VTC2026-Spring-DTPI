@@ -136,7 +136,7 @@ nav {
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/AS-Massena-Square-scaled.jpeg');
     /* 使用 cover 让图片始终铺满，避免两侧纯色条 */
-    background-size: 1200px auto;
+    background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: scroll;
