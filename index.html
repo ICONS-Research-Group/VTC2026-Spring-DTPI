@@ -98,7 +98,7 @@
                 <div class="ticker">
                     <div class="ticker-label">Workshop Organization</div>
                     <ul class="ticker-track" id="ticker-track">
-                        <li>👥 General Co‑chairs: Trung Q. Duong · Tom H. Luan · Michael Cheffena · Mingzhe Chen</li>
+                        <li>👥 General Co‑chairs: Trung Q. Duong · Tom H. Luan · Mingzhe Chen</li>
                         <li>👥 TPC Co‑chairs: Qiang (John) Ye · Qihao Li · Yuchen Liu · Katsuya Suto · Mushu Li · Hong Chen · Haixia Peng</li>
                         <li>📣 Publicity: Jie Gao · Nan Chen · Omar Alhussein</li>
                         <li>📍 Venue: TBA</li>
@@ -215,15 +215,15 @@
             </div>
         </section>
 
-        <section id="organizers" class="organizers-section">
+        <section id="organizers" class="organizers-section" aria-labelledby="organizers-heading">
             <div class="container">
-                <h2>Workshop Organization</h2>
-                
-                <!-- General Co-chairs -->
-                <div class="organizer-group">
-                    <h3>General Co-chairs</h3>
+                <h2 id="organizers-heading">Workshop Organization</h2>
+
+                <div class="organizers-stack">
+                <section class="organizer-group" aria-labelledby="general-chairs-heading">
+                    <h3 id="general-chairs-heading">General Co-chairs</h3>
                     <div class="organizer-cards general-chairs">
-                        <div class="organizer-card">
+                        <article class="organizer-card">
                             <div class="profile-image">
                                 <img src="images/avatars/Trung_DUONG.png" alt="Trung Q. Duong">
                             </div>
@@ -232,8 +232,8 @@
                                 <p class="affiliation">Memorial University, Canada</p>
                                 <a href="mailto:tduong@mun.ca" class="email">tduong@mun.ca</a>
                             </div>
-                        </div>
-                        <div class="organizer-card">
+                        </article>
+                        <article class="organizer-card">
                             <div class="profile-image">
                                 <img src="images/avatars/luan.png" alt="Tom H. Luan">
                             </div>
@@ -242,18 +242,8 @@
                                 <p class="affiliation">Xi'an Jiaotong University, China</p>
                                 <a href="mailto:tom.luan@xjtu.edu.cn" class="email">tom.luan@xjtu.edu.cn</a>
                             </div>
-                        </div>
-                        <div class="organizer-card">
-                            <div class="profile-image">
-                                <img src="images/avatars/micheal.jpg" alt="Michael Cheffena">
-                            </div>
-                            <div class="profile-info">
-                                <h4 class="name">Michael Cheffena</h4>
-                                <p class="affiliation">NTNU, Norway</p>
-                                <a href="mailto:michael.cheffena@ntnu.edu" class="email">michael.cheffena@ntnu.edu</a>
-                            </div>
-                        </div>
-                        <div class="organizer-card">
+                        </article>
+                        <article class="organizer-card">
                             <div class="profile-image">
                                 <img src="images/avatars/mingzhe_chen.png" alt="Mingzhe Chen">
                             </div>
@@ -262,13 +252,12 @@
                                 <p class="affiliation">University of Miami, USA</p>
                                 <a href="mailto:mingzhe.chen@miami.edu" class="email">mingzhe.chen@miami.edu</a>
                             </div>
-                        </div>
+                        </article>
                     </div>
-                </div>
+                </section>
 
-                <!-- TPC Co-chairs -->
-                <div class="organizer-group">
-                    <h3>Technical Program Committee Co-chairs</h3>
+                <section class="organizer-group" aria-labelledby="tpc-chairs-heading">
+                    <h3 id="tpc-chairs-heading">Technical Program Committee Co-chairs</h3>
                     <div class="organizer-cards tpc-chairs">
                         <div class="organizer-card">
                             <div class="profile-image">
@@ -351,11 +340,10 @@
                             </div>
                         </div>                                                                        
                     </div>
-                </div>
+                </section>
 
-                <!-- Publicity Co-chairs -->
-                <div class="organizer-group">
-                    <h3>Publicity Co-chairs</h3>
+                <section class="organizer-group" aria-labelledby="publicity-chairs-heading">
+                    <h3 id="publicity-chairs-heading">Publicity Co-chairs</h3>
                     <div class="organizer-cards publicity-chairs">
                         <div class="organizer-card">
                             <div class="profile-image">
@@ -388,6 +376,7 @@
                             </div>
                         </div>
                     </div>
+                </section>
                 </div>
             </div>
         </section>
