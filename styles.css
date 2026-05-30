@@ -928,6 +928,212 @@ h2 {
     transform: translateX(4px);
 }
 
+/* Online access section */
+.online-access-section {
+    background: linear-gradient(135deg, #eef6ff 0%, #f8fafc 55%, #ecfdf5 100%);
+}
+
+.online-access-panel {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid #dbeafe;
+    border-radius: 16px;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+    overflow: hidden;
+    padding: 2rem;
+    position: relative;
+}
+
+.online-access-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #2563eb, #06b6d4, #10b981);
+}
+
+.online-access-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.online-access-kicker {
+    color: #2563eb;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.35rem;
+    text-transform: uppercase;
+}
+
+.online-access-header h2 {
+    margin: 0 0 0.5rem;
+    text-align: left;
+}
+
+.online-access-intro {
+    color: #4b5563;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.online-primary-button {
+    align-items: center;
+    background: linear-gradient(135deg, #2563eb 0%, #0f766e 100%);
+    border-radius: 10px;
+    box-shadow: 0 10px 22px rgba(37, 99, 235, 0.24);
+    color: #ffffff;
+    display: inline-flex;
+    flex-shrink: 0;
+    font-weight: 700;
+    gap: 0.5rem;
+    padding: 0.95rem 1.35rem;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.online-primary-button:hover {
+    box-shadow: 0 14px 28px rgba(37, 99, 235, 0.3);
+    transform: translateY(-2px);
+}
+
+.online-topic-card {
+    background: #0f172a;
+    border-radius: 12px;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    padding: 1.25rem 1.5rem;
+}
+
+.online-label {
+    color: #60a5fa;
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.07em;
+    margin-bottom: 0.35rem;
+    text-transform: uppercase;
+}
+
+.online-topic-card strong {
+    display: block;
+    font-size: 1.1rem;
+    line-height: 1.35;
+}
+
+.online-access-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.online-detail-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    min-width: 0;
+    padding: 1rem;
+}
+
+.online-detail-card strong {
+    color: #111827;
+    display: block;
+    font-size: 0.98rem;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+.online-detail-card p {
+    color: #64748b;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin: 0.25rem 0 0;
+}
+
+.online-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.online-links a {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 999px;
+    color: #1d4ed8;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 0.55rem 0.85rem;
+    text-decoration: none;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.online-links a:hover {
+    background: #dbeafe;
+    transform: translateY(-1px);
+}
+
+.mobile-access {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 1.25rem;
+}
+
+.mobile-access h3 {
+    color: #111827;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.mobile-access-list {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.mobile-access-list a {
+    color: #475569;
+    font-size: 0.88rem;
+    overflow-wrap: anywhere;
+    text-decoration: none;
+}
+
+.mobile-access-list a:hover {
+    color: #2563eb;
+}
+
+@media (max-width: 900px) {
+    .online-access-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .online-access-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 560px) {
+    .online-access-panel {
+        padding: 1.5rem;
+    }
+
+    .online-access-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .online-primary-button {
+        justify-content: center;
+        width: 100%;
+    }
+}
+
 /* Keynote speakers section */
 .keynotes-section {
     background: #ffffff;
