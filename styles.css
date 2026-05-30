@@ -27,6 +27,7 @@ header {
     top: 0;
     z-index: 1000;
     backdrop-filter: blur(10px);
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 nav {
@@ -36,12 +37,15 @@ nav {
     padding: 1rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    transition: padding 0.25s ease;
 }
 
 .nav-brand {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    min-width: 0;
+    transition: gap 0.25s ease;
 }
 
 .conference-badge {
@@ -50,13 +54,17 @@ nav {
     color: #6b7280;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    max-height: 1.5rem;
+    overflow: hidden;
+    transition: opacity 0.2s ease, max-height 0.25s ease, transform 0.25s ease;
 }
 
 .workshop-title h1 {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 700;
     color: #1a1a1a;
     margin: 0;
+    transition: font-size 0.25s ease, line-height 0.25s ease, max-width 0.25s ease;
 }
 
 .workshop-title p {
@@ -64,6 +72,44 @@ nav {
     color: #6b7280;
     margin: 0;
     max-width: 400px;
+    max-height: 3rem;
+    overflow: hidden;
+    transition: opacity 0.2s ease, max-height 0.25s ease, transform 0.25s ease;
+}
+
+header.scrolled {
+    background-color: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.12);
+}
+
+header.scrolled nav {
+    padding: 0.45rem 2rem;
+}
+
+header.scrolled .nav-brand {
+    gap: 0.15rem;
+    max-width: 520px;
+}
+
+header.scrolled .conference-badge,
+header.scrolled .workshop-title p {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-4px);
+}
+
+header.scrolled .workshop-title h1 {
+    font-size: 1rem;
+    line-height: 1.25;
+    max-width: 520px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+header.scrolled .nav-menu li a {
+    padding: 0.55rem 0.95rem;
+    font-size: 0.72rem;
 }
 
 .nav-menu {
@@ -135,9 +181,8 @@ nav {
 /* Hero section */
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/AS-Massena-Square-scaled.jpeg');
-    /* 使用 cover 让图片始终铺满，避免两侧纯色条 */
-    background-size: cover;
-    background-position: center center;
+    background-size: 100% auto;
+    background-position: center top;
     background-repeat: no-repeat;
     background-attachment: scroll;
     color: white;
@@ -529,8 +574,8 @@ h2 {
 /* Timeline Items */
 .timeline-item {
     display: grid;
-    grid-template-columns: 120px 1fr;
-    gap: 1.5rem;
+    grid-template-columns: 150px 1fr;
+    gap: 2rem;
     padding: 1.25rem 1.5rem;
     border-bottom: 1px solid #f1f5f9;
     transition: all 0.3s ease;
@@ -567,31 +612,36 @@ h2 {
 .time-block {
     display: flex;
     align-items: flex-start;
-    justify-content: flex-end;
-    padding-top: 0.1rem;
+    justify-content: flex-start;
+    padding-top: 0.05rem;
+    position: relative;
+    z-index: 3;
 }
 
 .time {
     font-weight: 700;
     color: #2563eb;
-    font-size: 0.8rem;
-    background: #eff6ff;
-    padding: 0.35rem 0.75rem;
-    border-radius: 6px;
-    border: 1px solid #dbeafe;
+    font-size: 0.78rem;
+    line-height: 1;
+    background: #f8fbff;
+    padding: 0.55rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid #bfdbfe;
+    box-shadow: 0 1px 2px rgba(37, 99, 235, 0.08);
     white-space: nowrap;
     text-align: center;
-    min-width: 85px;
+    min-width: 108px;
 }
 
 .timeline-item.opening .time {
-    background: #dbeafe;
+    background: #eff6ff;
     color: #1e40af;
 }
 
 .timeline-item.closing .time {
-    background: #dcfce7;
+    background: #ecfdf5;
     color: #047857;
+    border-color: #a7f3d0;
 }
 
 /* Event Block */
@@ -619,6 +669,14 @@ h2 {
     color: #6b7280;
     font-size: 0.85rem;
     font-weight: 500;
+    margin-bottom: 0;
+}
+
+.event-chair {
+    color: #2563eb;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-top: 0.35rem;
     margin-bottom: 0;
 }
 
@@ -2203,7 +2261,7 @@ footer {
 .timeline-item::before {
     content: '';
     position: absolute;
-    left: 120px;
+    left: 170px;
     top: 0;
     bottom: 0;
     width: 2px;
@@ -2218,7 +2276,7 @@ footer {
 .timeline-item::after {
     content: '';
     position: absolute;
-    left: 115px;
+    left: 165px;
     top: 1.5rem;
     width: 10px;
     height: 10px;

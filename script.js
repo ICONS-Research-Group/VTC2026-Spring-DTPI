@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
+    const siteHeader = document.querySelector('header');
 
     if (mobileNavToggle && navMenu) {
         mobileNavToggle.addEventListener('click', function() {
@@ -41,9 +42,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ===== Workshop Countdown Timer =====
-    // Target date: June 9, 2026 09:00 Nice, France time (UTC+2)
-    // Nice time 09:00 = UTC 07:00
-    const targetDate = new Date('2026-06-09T07:00:00Z');
+    // Target date: June 9, 2026 14:00 Nice, France time (UTC+2)
+    // Nice time 14:00 = UTC 12:00
+    const targetDate = new Date('2026-06-09T12:00:00Z');
     
     function updateCountdown() {
         const daysEl = document.getElementById('days');
@@ -102,6 +103,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+
+    function updateHeaderSize() {
+        if (!siteHeader) {
+            return;
+        }
+        siteHeader.classList.toggle('scrolled', window.scrollY > 40);
+    }
     
     // Function to update active navigation link
     function updateActiveNavLink() {
@@ -125,10 +133,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Set active link on page load
+    updateHeaderSize();
     updateActiveNavLink();
     
-    // Update active link on scroll
-    window.addEventListener('scroll', updateActiveNavLink);
+    // Update active link and compact header on scroll
+    window.addEventListener('scroll', function() {
+        updateHeaderSize();
+        updateActiveNavLink();
+    });
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -143,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                const headerHeight = 80;
+                const headerHeight = siteHeader ? siteHeader.offsetHeight : 80;
                 const targetPosition = targetSection.offsetTop - headerHeight;
                 
                 window.scrollTo({
