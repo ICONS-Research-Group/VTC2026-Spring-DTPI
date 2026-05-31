@@ -720,6 +720,12 @@ h2 {
     font-style: italic;
 }
 
+.paper-authors strong {
+    color: #374151;
+    font-style: normal;
+    font-weight: 700;
+}
+
 /* Responsive Design for Schedule */
 @media (max-width: 768px) {
     .timeline-item {
